@@ -1,9 +1,7 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	_ "log"
 	"net"
 	"os"
 )
@@ -23,10 +21,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	reader := bufio.NewReader(conn)
-
-	for {
-		_, _ = reader.ReadString('\n')
+	for i := 0; i <= 2; i++ {
 		conn.Write([]byte("+PONG\r\n"))
 	}
 
