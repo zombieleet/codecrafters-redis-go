@@ -24,12 +24,10 @@ func main() {
 	}
 
 	reader := bufio.NewReader(conn)
-	writer := bufio.NewWriter(conn)
 
 	for {
 		_, _ = reader.ReadString('\n')
-		writer.WriteString("+PONG\r\n")
-		writer.Flush()
+		conn.Write([]byte("+PONG\r\n"))
 	}
 
 }
